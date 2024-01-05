@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./assets/css/reset_min.css">
+  <link rel="stylesheet" href="./assets/css/font_Noto_Sans_KR(no_italic)_min.css">
+  <link rel="stylesheet" href="./assets/css/font_malgun.css">
+  <link rel="stylesheet" href="./assets/css/skip_menu_min.css">
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <style>
+    :root{
+      font-family: 'Noto Sans KR','맑은 고딕',sans-serif;
+      font-size: 12px;
+      color: black;
+    }
+    #wrap{
+      overflow: hidden;
+    }
+    .container{
+      position: relative;
+      min-width: 1240px;
+      width: 1240px;
+      height: 100%;
+      margin: 0 auto;
+    }
+
+
+    .header{
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      background-color: transparent;
+      color: white;
+      z-index: 99;
+    }
+    .header .header-inner::after{
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      background-color: transparent;
+      height: 109px;
+      transition: opacity 400ms linear, height 400ms linear;
+      z-index: -1;
+    }
+    .header.active .header-inner::after{
+      opacity: 1;
+      background-color: white;
+    }
+    .header-container{
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      width: 1240px;
+      min-width: 1240px;
+      height: 100%;
+      margin: 0 auto;
+      padding-top: 10px;
+    }
+    .header-container h1{
+      margin-top: 37px;
+    }
+    .header-right{
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .header-top{
+      margin-bottom: 25px;
+      margin-right: 80px;
+    }
+    .header-top ul{
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+    .header-top a{
+      display: inline-block;
+      margin-right: 10px;
+      color: white;
+      position: relative;
+    }
+    .header.active .header-top a,
+    .header-top a.active{
+      color: gray;
+    }
+    .header-top a::after{
+      content: '';
+      display: inline-block;
+      width: 1px;
+      height: 10px;
+      background-color: white;
+      margin-left: 9px;
+    }
+    .header-top a.no-vir::after{
+      display: none;
+    }
+    .header-top a.employ{
+      padding-left: 17px;
+      background-image: url(./assets/images/recreits_off.png);
+      background-position: left center;
+      background-repeat: no-repeat;
+      background-size: 13px 13px;
+    }
+    .header.active .header-top a.employ,
+    .header-top a.employ.active{
+      color: #008944;
+      background-image: url(./assets/images/recreits_on.png);
+    }
+    .header-top a#btn-quick-menu-open{
+      margin-left: 10px;
+      border: 1px solid white;
+      border-radius: 8px;
+      width: 71px;
+      height: 17px;
+      line-height: 15px;
+      font-size: 10px;
+      text-align: center;
+      font-weight: 300;
+      cursor: pointer;
+    }
+    .header.active .header-top a#btn-quick-menu-open,
+    .header-top a#btn-quick-menu-open.active{
+      color: gray;
+      border: 1px solid gray;
+    }
+    .header-nav{
+      font-size: 15px;
+      text-align: center;
+      margin-right: 50px;
+    }
+    .header-nav .depth1{
+      display: flex;
+    }
+    .depth1-item{
+      margin-left: 19px;
+      width: 149px;
+    }
+    .depth1 .nav-tit{
+      position: relative;
+      display: flex;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 34px;
+      height: 57px;
+    }
+    .header.active .depth1 .nav-tit,
+    .depth1 .nav-tit.active{
+      color: black;
+    }
+    .depth1 .nav-tit a{
+      display: block;
+      width: 100%;
+    }
+    .nav-tit .line{
+      position: absolute;
+      left: 0;
+      right: auto;
+      bottom: 0;
+      height: 2px;
+      width: 0;
+      transition: width 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+    }
+    .header.active .line{
+      width: 100%;
+      transition-duration: 0.9s;
+      transition-delay: 0.85s;
+    }
+    .nav-tit .line::after,
+    .nav-tit .line::before{
+      content: '';
+      display: block;
+      position: absolute;
+      height: 2px;
+      bottom: 0;
+    }
+    .nav-tit .line::before{
+      left: 0;
+      width: 100%;
+      z-index: 0;
+      background-color: #cfcfcf;
+    }
+    .nav-tit .line::after{
+      left: auto;
+      right: 0;
+      width: 0;
+      z-index: 100;
+      background: linear-gradient(90deg, rgba(67,176,42,1) 0%, rgba(0,169,224,1) 100%);
+      transition: width 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+    }
+    .nav-tit:hover .line::after{
+      left: 0;
+      right: auto;
+      width: 100%;
+    }
+    .header-nav .depth2{
+      color:black;
+      height: 0;
+      opacity: 0;
+      overflow: hidden;
+    }
+    .header.active .depth2{
+      opacity: 1;
+      height: 100%;
+      transition: opacity 400ms linear, height 400ms linear;
+      margin-top: 30px;
+    }
+    .depth2 li{
+      height: 37px;
+    }
+    .header-nav-bg{
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 104px;
+      height: 0;
+      opacity: 0;
+      z-index: -2;
+      transition: opacity 400ms linear, 0.8s;
+      background-color: white;
+    }
+    .header.active .header-nav-bg{
+      height: 400px;
+      opacity: 1;
+    }
+
+
+    .sec-home{
+      position: relative;
+    }
+    .sec-home h2{
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%,-50%);
+      font-size: 29px;
+      font-weight: 300;
+      color: white;
+      z-index: 999;
+      text-align: center;
+    }
+    .sec-home h2 span{
+      font-weight: 700;
+      font-size: 57px;
+      display: inline-block;
+      margin-bottom: 24px;
+    }
+    .home-slide{
+      position: relative;
+    }
+    .home-slide .imgbox{
+      height: 975px;
+    }
+    .home-slide .imgbox img{
+      object-fit: cover;
+      height: 100%;
+    }
+    .home-control{
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 80px;
+    }
+    .home-control .pagination{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .home-control .pagination li{
+      width: 13px;
+      height: 13px;
+      border: 1px solid white;
+      border-radius: 50%;
+      margin-right: 18px;
+    }
+    .home-control .pagination li button{
+      display: none;
+    }
+    #btn-home-control{
+      position: absolute;
+      right: 584px;
+      width: 10px;
+      height: 17px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="skip-menu">
+    <a href="#main">본문으로 이동</a>
+  </div>
+  <section id="wrap">
+    <header id="header" class="header">
+      <div class="header-inner">
+        <div class="header-container">
+          <h1><a href="./index.html"><img src="./assets/images/logo.png" alt="" id="head-logo"></a></h1>
+          <div class="header-right">
+            <div class="header-top">
+              <ul>
+                <li><a class="employ" href="#">인재채용</a></li>
+                <li><a href="#">고객센터</a></li>
+                <li><a href="#">판매약국찾기</a></li>
+                <li><a href="#">ENG</a></li>
+                <li><a href="#" class="no-vir">中文</a></li>
+                <li><a id="btn-quick-menu-open" class="no-vir">QUICK MENU</a></li>
+              </ul>
+            </div>
+            <nav class="header-nav">
+              <ul class="depth1">
+                <li class="depth1-item">
+                  <div class="nav-tit">
+                    <a href="#">유한소개</a>
+                    <p class="line"></p>
+                  </div>
+                  <ul class="depth2">
+                    <li><a href="#">회사소개</a></li>
+                    <li><a href="#">CEO메세지</a></li>
+                    <li><a href="#">회사연혁</a></li>
+                    <li><a href="#">홍보</a></li>
+                    <li><a href="#">창업자 유일한</a></li>
+                  </ul>
+                </li>
+                <li class="depth1-item">
+                  <div class="nav-tit">
+                    <a href="#">연구개발</a>
+                    <p class="line"></p>
+                  </div>
+                  <ul class="depth2">
+                    <li><a href="#">미션 & 비전</a></li>
+                    <li><a href="#">연구개발전략</a></li>
+                    <li><a href="#">연구개발 활동</a></li>
+                    <li><a href="#">파이프라인</a></li>
+                    <li><a href="#">연구결과 발표</a></li>
+                    <li><a href="#">주요성과</a></li>
+                  </ul>
+                </li>
+                <li class="depth1-item">
+                  <div class="nav-tit">
+                    <a href="#">지속가능경영</a>
+                    <p class="line"></p>
+                  </div>
+                  <ul class="depth2">
+                    <li><a href="#">지속가능경영보고서</a></li>
+                    <li><a href="#">준법경영</a></li>
+                    <li><a href="#">환경·안전경영</a></li>
+                    <li><a href="#">사회공헌</a></li>
+                    <li><a href="#">지배구조</a></li>
+                    <li><a href="#">ESG평가등급</a></li>
+                  </ul>
+                </li>
+                <li class="depth1-item">
+                  <div class="nav-tit">
+                    <a href="#">투자정보</a>
+                    <p class="line"></p>
+                  </div>
+                  <ul class="depth2">
+                    <li><a href="#">공시정보</a></li>
+                    <li><a href="#">재무정보</a></li>
+                    <li><a href="#">주식정보</a></li>
+                    <li><a href="#">IR자료실</a></li>
+                    <li><a href="#">ANNUAL REPORT</a></li>
+                  </ul>
+                </li>
+                <li class="depth1-item">
+                  <div class="nav-tit">
+                    <a href="#">제품정보</a>
+                    <p class="line"></p>
+                  </div>
+                  <ul class="depth2">
+                    <li><a href="#">제품정보</a></li>
+                    <li><a href="#">제품소식</a></li>
+                    <li><a href="#">제품 외형별 검색</a></li>
+                    <li><a href="#">가정상비약</a></li>
+                    <li><a href="#">브랜드 이야기</a></li>
+                    <li><a href="#">약국찾기</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <div class="header-nav-bg"><span class="none">배경</span></div>
+      </div>
+    </header>
+    <div id="quick-menu" class="quick-menu"></div>
+    <main id="main" class="main">
+      <div class="main-slide-wrapper">
+        <section class="sec-home">
+          <h2>
+            <span>Great & Global</span>
+            <br>
+            인류 건강의 길을 앞서갑니다.
+          </h2>
+          <div class="home-slide">
+            <div class="home-slide-wrapper">
+              <div class="imgbox"><img src="./assets/images/home_01.jpg" alt=""></div>
+              <div class="imgbox"><img src="./assets/images/home_02.jpg" alt=""></div>
+              <div class="imgbox"><img src="./assets/images/home_03.jpg" alt=""></div>
+              <div class="imgbox"><img src="./assets/images/home_04.jpg" alt=""></div>
+              <div class="imgbox"><img src="./assets/images/home_05.jpg" alt=""></div>
+            </div>
+            <div class="home-control">
+              <div id="btn-home-control"><img src="./assets/images/btn_stop.png" alt=""></div>
+            </div>
+          </div>
+          
+        </section>
+      </div>
+    </main>
+  </section>
+  <script src="./assets/js/jquery.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <script>
+    AOS.init();
+    $(document).ready(function(){
+      $('.main-slide-wrapper').slick({
+        accessibility:false,
+        arrows: false,
+        infinite:false,
+        touchMove:false,
+        vertical:true,
+        verticalSwiping:true
+      });
+    });
+
+    $(document).ready(function(){
+      $('.home-slide-wrapper').slick({
+        accessibility:false,
+        autoplay:true,
+        arrows:false,
+        draggable:false,
+        fade:true,
+        infinite:true,
+        touchMove:false,
+        dots:true,
+        dotsClass:'pagination',
+        appendDots:$('.home-control'),
+      })
+    })
+    
+    
+
+    
+    let header=document.getElementById('header');
+    let logo=document.getElementById('head-logo');
+    let navTit=document.getElementsByClassName('nav-tit');
+    header.onmouseenter=function(){
+      header.classList.add('active');
+      logo.setAttribute('src','./assets/images/logo_hover.png');
+    }
+    header.onmouseleave=function(){
+      header.classList.remove('active');
+      logo.setAttribute('src','./assets/images/logo.png');
+    }
+  </script>
+</body>
+</html>

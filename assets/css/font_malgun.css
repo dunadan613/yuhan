@@ -1,0 +1,16 @@
+@charset 'utf-8';
+@font-face{
+  font-family: '맑은 고딕';
+  font-weight: 300;
+  src: url(../fonts/malgunsl.ttf);
+}
+@font-face{
+  font-family: '맑은 고딕';
+  font-weight: 500;
+  src: url(../fonts/malgun.ttf);
+}
+@font-face{
+  font-family: '맑은 고딕';
+  font-weight: 700;
+  src: url(../fonts/malgunbd.ttf);
+}
