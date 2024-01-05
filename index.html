@@ -238,7 +238,7 @@
     .sec-home h2{
       position: absolute;
       left: 50%;
-      top: 50%;
+      top: 47.5%;
       transform: translate(-50%,-50%);
       font-size: 29px;
       font-weight: 300;
@@ -250,7 +250,7 @@
       font-weight: 700;
       font-size: 57px;
       display: inline-block;
-      margin-bottom: 24px;
+      margin-bottom: 16px;
     }
     .home-slide{
       position: relative;
@@ -261,6 +261,13 @@
     .home-slide .imgbox img{
       object-fit: cover;
       height: 100%;
+      display: block;
+      transform: scale(1.2);
+      transition: all 3s ease-out;
+    }
+    .home-slide .imgbox.slick-active img{
+      transform: scale(1);
+      transition: all 10s ease-out;
     }
     .home-control{
       position: absolute;
@@ -280,15 +287,23 @@
       border-radius: 50%;
       margin-right: 18px;
     }
+    .home-control .pagination li.slick-active{
+      background-color: white;
+    }
     .home-control .pagination li button{
       display: none;
     }
     #btn-home-control{
       position: absolute;
-      right: 584px;
+      left: 792px;
       width: 10px;
       height: 17px;
       cursor: pointer;
+    }
+
+
+    .sec-company{
+      height: 1082px;
     }
   </style>
 </head>
@@ -392,7 +407,7 @@
     <div id="quick-menu" class="quick-menu"></div>
     <main id="main" class="main">
       <div class="main-slide-wrapper">
-        <section class="sec-home">
+        <section class="main-slide sec-home">
           <h2>
             <span>Great & Global</span>
             <br>
@@ -407,19 +422,33 @@
               <div class="imgbox"><img src="./assets/images/home_05.jpg" alt=""></div>
             </div>
             <div class="home-control">
-              <div id="btn-home-control"><img src="./assets/images/btn_stop.png" alt=""></div>
+              <div id="btn-home-control" class="flag-play"><img src="./assets/images/btn_stop.png" alt=""></div>
             </div>
           </div>
           
+        </section>
+        <section class="main-slide sec-company">
+          <div class="container">
+            <div class="company-tit">
+              <h2>YUHAN</h2>
+              <p>
+                모두의 건강과 행복이라는 큰 꿈을 가진 버드나무는
+                <br>
+                지금도 국민과 함께 자라고 있습니다.
+              </p>
+            </div>
+          </div>
         </section>
       </div>
     </main>
   </section>
   <script src="./assets/js/jquery.min.js"></script>
+  <script src="./assets/js/jquery.mousewheel.min.js"></script>
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   <script>
     AOS.init();
+    // ----- 메인 슬라이더 -----
     $(document).ready(function(){
       $('.main-slide-wrapper').slick({
         accessibility:false,
@@ -427,14 +456,19 @@
         infinite:false,
         touchMove:false,
         vertical:true,
-        verticalSwiping:true
+        verticalSwiping:true,
+        slidesToScroll: 1,
+        slide:$('.main-slide'),
       });
     });
 
+
+    // ----- 홈 슬라이더 -----
     $(document).ready(function(){
       $('.home-slide-wrapper').slick({
         accessibility:false,
         autoplay:true,
+        autoplaySpeed:4000,
         arrows:false,
         draggable:false,
         fade:true,
@@ -443,12 +477,28 @@
         dots:true,
         dotsClass:'pagination',
         appendDots:$('.home-control'),
-      })
+        pauseOnFocus:false,
+        pauseOnHover:false,
+        pauseOnDotsHover:false,
+      });
+    });
+    // ----- 홈 슬라이더 제어 -----
+    $('#btn-home-control').click(function(){
+      if($('#btn-home-control').hasClass('flag-play')){
+        $('.home-slide-wrapper').slick('slickPause');
+        $('#btn-home-control').attr('class','flag-stop');
+        $('#btn-home-control').children().attr('src','./assets/images/btn_play.png');
+      }
+      else if($('#btn-home-control').hasClass('flag-stop')){
+        $('.home-slide-wrapper').slick('slickPlay');
+        $('#btn-home-control').attr('class','flag-play');
+        $('#btn-home-control').children().attr('src','./assets/images/btn_stop.png');
+      }
     })
     
     
 
-    
+    // ----- 헤더 제어 -----
     let header=document.getElementById('header');
     let logo=document.getElementById('head-logo');
     let navTit=document.getElementsByClassName('nav-tit');
