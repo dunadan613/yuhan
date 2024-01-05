@@ -305,6 +305,10 @@
     .sec-company{
       height: 1082px;
     }
+    .company-tit{
+      position: absolute;
+      top: 170px;
+    }
   </style>
 </head>
 <body>
@@ -457,8 +461,9 @@
         touchMove:false,
         vertical:true,
         verticalSwiping:true,
+        slidesToShow:1,
         slidesToScroll: 1,
-        slide:$('.main-slide'),
+        // slide:$('.main-slide'),
       });
     });
 
