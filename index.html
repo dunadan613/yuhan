@@ -9,15 +9,12 @@
   <link rel="stylesheet" href="./assets/css/font_malgun.css">
   <link rel="stylesheet" href="./assets/css/skip_menu_min.css">
   <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/css/aos.css">
   <style>
     :root{
       font-family: 'Noto Sans KR','맑은 고딕',sans-serif;
       font-size: 12px;
       color: black;
-    }
-    #wrap{
-      overflow: hidden;
     }
     .container{
       position: relative;
@@ -25,6 +22,18 @@
       width: 1240px;
       height: 100%;
       margin: 0 auto;
+    }
+    a.view-more{
+      position: absolute;
+      width: 100px;
+      padding-bottom: 3px;
+      padding-left: 3px;
+      border-bottom: 1px solid #b2b2b2;
+      font-size: 15px;
+      background-image: url(./assets/images/more.png);
+      background-repeat: no-repeat;
+      background-position: 90px;
+      color: #666666;
     }
 
 
@@ -36,6 +45,10 @@
       background-color: transparent;
       color: white;
       z-index: 99;
+      padding-bottom: 10px;
+    }
+    .header.flag-under{
+      background-color: white;
     }
     .header .header-inner::after{
       content: '';
@@ -88,7 +101,7 @@
       position: relative;
     }
     .header.active .header-top a,
-    .header-top a.active{
+    .header.flag-under .header-top a{
       color: gray;
     }
     .header-top a::after{
@@ -110,7 +123,7 @@
       background-size: 13px 13px;
     }
     .header.active .header-top a.employ,
-    .header-top a.employ.active{
+    .header.flag-under .header-top a.employ{
       color: #008944;
       background-image: url(./assets/images/recreits_on.png);
     }
@@ -127,7 +140,7 @@
       cursor: pointer;
     }
     .header.active .header-top a#btn-quick-menu-open,
-    .header-top a#btn-quick-menu-open.active{
+    .header.flag-under .header-top a#btn-quick-menu-open{
       color: gray;
       border: 1px solid gray;
     }
@@ -152,7 +165,7 @@
       height: 57px;
     }
     .header.active .depth1 .nav-tit,
-    .depth1 .nav-tit.active{
+    .header.flag-under .depth1 .nav-tit{
       color: black;
     }
     .depth1 .nav-tit a{
@@ -195,7 +208,7 @@
       background: linear-gradient(90deg, rgba(67,176,42,1) 0%, rgba(0,169,224,1) 100%);
       transition: width 0.8s cubic-bezier(0.250, 0.460, 0.450, 0.940);
     }
-    .nav-tit:hover .line::after{
+    .nav-tit.active .line::after{
       left: 0;
       right: auto;
       width: 100%;
@@ -229,6 +242,35 @@
     .header.active .header-nav-bg{
       height: 400px;
       opacity: 1;
+    }
+
+
+    .quick-menu{
+      /* display: none; */
+      position: fixed;
+      top: 0;
+      right: 0;
+      z-index: 100;
+      padding: 30px;
+      background-color: white;
+      width: 270px;
+      height: 908px;
+    }
+    .quick-menu li{
+      margin-bottom: 36px;
+      width: 179px;
+    }
+    .quick-menu h2{
+      font-weight: 900;
+      font-size: 19px;
+      margin-bottom: 13px;
+    }
+    .quick-menu div{
+      margin-left: 10px;
+    }
+    .quick-menu div p{
+      margin-bottom: 5px;
+      font-size: 16px;
     }
 
 
@@ -295,7 +337,7 @@
     }
     #btn-home-control{
       position: absolute;
-      left: 792px;
+      left: 57.8%;
       width: 10px;
       height: 17px;
       cursor: pointer;
@@ -304,10 +346,477 @@
 
     .sec-company{
       height: 1082px;
+      background-image: url(./assets/images/company_bg.jpg);
+      background-repeat: no-repeat;
+      background-position: center;
     }
     .company-tit{
       position: absolute;
       top: 170px;
+    }
+    .company-tit h2{
+      font-weight: 500;
+      font-size: 55px;
+    }
+    .company-tit p{
+      font-weight: 300;
+      font-size: 21px;
+      color: #8d8d8d;
+    }
+    .company-slider{
+      position: absolute;
+      width: 500px;
+      top: 172px;
+      right: 0;
+      border: 1px solid #e1e1e1;
+      z-index: 1;
+    }
+    .company-introduct{
+      position: relative;
+      width: 686px;
+      height: 450px;
+      top: 482px;
+    }
+    .company-introduct .imgbox{
+      position: absolute;
+      overflow: hidden;
+      color: black;
+    }
+    .company-introduct .imgbox:nth-of-type(2){
+      top: 230px;
+      color: white;
+    }
+    .company-introduct .imgbox:nth-of-type(3){
+      right: 0;
+      color: white;
+    }
+    .company-introduct .imgbox p{
+      position: absolute;
+      width: 204px;
+      height: 87px;
+      top: 36px;
+      left: 32px;
+      font-size: 19px;
+      font-weight: 500;
+      overflow: hidden;
+    }
+    .overview{
+      position: relative;
+      width: 492px;
+      height: 283px;
+      top: 258px;
+      left: 748px;
+      border-bottom: 1px solid #acaead;
+    }
+    .overview h3{
+      font-weight: 500;
+      font-size: 35px;
+    }
+    .overview span{
+      display: block;
+      width: 326px;
+      margin-top: 10px;
+      font-size: 19px;
+      color: #8d8d8d;
+    }
+    .overview a{
+      bottom: 59px;
+      left: 0;
+    }
+
+
+    .sec-product{
+      background-image: url(./assets/images/product_bg_01.jpg);
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 1079px;
+    }
+    .product-tit{
+      position: absolute;
+      width: 366px;
+      height: 182px;
+      top: 185px;
+    }
+    .product-tit h2{
+      font-weight: 700;
+      font-size: 49px;
+      color: #484848;
+    }
+    .product-tit p{
+      font-size: 600;
+      font-size: 24px;
+      color: #484848;
+    }
+    .product-tit a{
+      bottom: 0;
+      left: 0;
+    }
+    .product-slider{
+      position: absolute;
+      width: 620px;
+      top: 403px;
+      padding-left: 10px;
+    }
+    .product-slider ul{
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      font-size: 0;
+      position: absolute;
+      bottom: 0;
+      left: 10px;
+    }
+    .product-slider li{
+      width: 13px;
+      height: 13px;
+      margin-right: 10px;
+      border: 1px solid #626262;
+      border-radius: 50%;
+      background-color: transparent;
+    }
+    .product-slider li.slick-active{
+      background-color: #626262;
+    }
+    .product-slider button{
+      display: none;
+    }
+    .product-info{
+      position: absolute;
+      width: 420px;
+      height: 95px;
+      right: 80px;
+      bottom: 210px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .product-info .imgbox{
+      width: 122px;
+    }
+    .product-info .imgbox:nth-child(1) img{
+      width: 55px;
+      height: 48px;
+    }
+    .product-info .imgbox:nth-child(2) img{
+      width: 61px;
+      height: 46px;
+    }
+    .product-info .imgbox:nth-child(3) img{
+      width: 52px;
+      height: 53px;
+    }
+    .product-info .imgbox span{
+      display: block;
+      margin-top: 10px;
+      font-size: 19px;
+    }
+    .product-info .imgbox a{
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-around;
+      align-content: flex-end;
+    }
+
+
+    .sec-news{
+      height: 1141px;
+      background-image: url(./assets/images/news_bg.jpg);
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .sns-icon{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: absolute;
+      top: 216px;
+      right: 0;
+      gap: 3px;
+    }
+    .news-box{
+      position: absolute;
+      width: 574px;
+      height: 587px;
+      top: 269px;
+      padding: 19px;
+      background-color: rgb(255 255 255 / 71%);
+      box-sizing: content-box;
+    }
+    .news-box h3{
+      float: left;
+      font-size: 28px;
+      font-weight: 700;
+    }
+    .news-box>a{
+      float: right;
+      width: 64px;
+      margin-top: 10px;
+      border-bottom: 1px solid black;
+      font-size: 13px;
+    }
+    .news-list{
+      margin-top: 74px;
+    }
+    .news-list li{
+      height: 121px;
+      padding: 18px;
+      border-bottom: 1px solid #9c9c9c;
+    }
+    .news-list li:last-child{
+      border: none;
+    }
+    .news-list h4{
+      font-size: 19px;
+      font-weight: 700;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    .news-list p{
+      margin-top: 10px;
+      font-size: 17px;
+      word-wrap: normal;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    .news-list .news-date{
+      font-size: 12px;
+      color: #626567;
+    }
+    .youtube{
+      position: absolute;
+      width: 613px;
+      height: 625px;
+      top: 269px;
+      left: 628px;
+      box-sizing: content-box;
+    }
+    .youtube-detail{
+      position: absolute;
+      width: 575px;
+      height: 416px;
+      right: 0;
+      padding: 19px;
+      background-color: rgb(255 255 255 / 71%);
+      box-sizing: content-box;
+    }
+    .youtube-detail h3{
+      font-weight: 700;
+      font-size: 28px;
+      float: left;
+    }
+    .youtube-detail a.link{
+      float: right;
+      width: 64px;
+      margin-top: 10px;
+      font-size: 13px;
+      border-bottom: 1px solid black;
+    }
+    .youtube-detail .video{
+      display: block;
+      margin-top: 61px;
+    }
+    .youtube-detail .video iframe{
+      width: 560px;
+    }
+    .youtube .banner{
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+
+
+    .sec-notice{
+      height: 240px;
+      margin-top: 50px;
+      padding-top: 139px;
+      box-sizing: content-box;
+    }
+    .sec-notice .container{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .sec-notice .container>div{
+      position: relative;
+      width: 615px;
+    }
+    .invest{
+      margin-right: 10px;
+    }
+
+
+    .sec-brand{
+      height: 485px;
+      padding-top: 170px;
+      background-color: #f8f9fa;
+      box-sizing: content-box;
+    }
+    .sec-brand h2{
+      margin-bottom: 44px;
+      font-weight: 700;
+      font-size: 44px;
+    }
+    .brand-box{
+      width: 1026px;
+      height: 245px;
+      display: flex;
+      justify-content: space-around;
+      margin: 0 auto;
+    }
+    .brand-box ul li.has-color{
+      filter: grayscale(1);
+    }
+    .brand-box ul li.has-color:hover{
+      filter: grayscale(0);
+    }
+    .brand-box ul li a{
+      height: 100%;
+      display: inline-block;
+    }
+    .brand-box ul li a img{
+      height: 100%;
+    }
+    .brand-icon{
+      width: 882px;
+      display: flex;
+      flex-flow: row wrap;
+    }
+    .brand-icon li{
+      width: 141.5px;
+      height: 120px;
+      background-color: white;
+      margin-bottom: 7px;
+      margin-right: 6px;
+      border: 1px solid #ebebeb;
+    }
+    .brand-icon li:nth-child(6n){
+      margin-right: 0;
+    }
+    .mall{
+      width: 141.5px;
+    }
+    .mall li{
+      width: 100%;
+      height: 245px;
+      background-color: white;
+      border: 1px solid #ebebeb;
+      position: relative;
+    }
+    .mall p{
+      position: absolute;
+      top: 70px;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      font-weight: 500;
+      font-size: 13px;
+    }
+
+
+    .footer{
+      height: 203px;
+      border-top: 1px solid #efefef;
+    }
+    .footer .container{
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .footer-left{
+      padding-top: 42px;
+      font-size: 14px;
+    }
+    .footer-nav{
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      color: #8d8d8d;
+    }
+    .footer-nav li{
+      margin-right: 12px;
+      padding-right: 11px;
+      position: relative;
+    }
+    .footer-nav li::after{
+      content: '';
+      display: inline-block;
+      position: absolute;
+      right: 0;
+      bottom: 3px;
+      width: 1px;
+      height: 10px;
+      background-color: #8d8d8d;
+    }
+    .footer-nav strong{
+      font-weight: 700;
+    }
+    .address{
+      margin-top: 38px;
+      font-size: 14px;
+      line-height: 1.9;
+      font-style: normal;
+      color: #8d8d8d;
+    }
+    .family-site{
+      position: absolute;
+      top: 32px;
+      right: 128px;
+    }
+    .family-site button{
+      position: relative;
+      width: 236px;
+      height: 41px;
+      border: 1px solid #989898;
+      padding-left: 20px;
+      font-size: 14px;
+      text-align: left;
+      background-color: transparent;
+      cursor: pointer;
+    }
+    .family-site button::after{
+      content: '';
+      display: inline-block;
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      top: 0;
+      right: 0;
+      border-left: 1px solid #989898;
+      background-image: url(./assets/images/familybtn.png);
+      background-position: 11px;
+      background-repeat: no-repeat;
+      background-size: 48%;
+    }
+    .family-site-list{
+      display: none;
+      border: 1px solid #989898;
+      border-top: 0px;
+    }
+    .family-site-list li{
+      padding: 10px 0 8px 20px;
+      font-size: 13px;
+    }
+    .footer-right{
+      margin-top: 40px;
+    }
+    .footer-sns{
+      display: flex;
+      justify-content: space-between;
+      width: 70px;
+      margin: 0 auto 24px;
+      position: relative;
+    }
+    .footer-sns::after{
+      content: '';
+      display: inline-block;
+      position: absolute;
+      width: 2px;
+      height: 23px;
+      left: 44%;
+      transform: translateX(-50%);
+      background-color: #d1d1d1;
     }
   </style>
 </head>
@@ -319,7 +828,7 @@
     <header id="header" class="header">
       <div class="header-inner">
         <div class="header-container">
-          <h1><a href="./index.html"><img src="./assets/images/logo.png" alt="" id="head-logo"></a></h1>
+          <h1><a href="./index.html"><img src="./assets/images/logo.png" alt="유한양행" id="head-logo"></a></h1>
           <div class="header-right">
             <div class="header-top">
               <ul>
@@ -408,64 +917,324 @@
         <div class="header-nav-bg"><span class="none">배경</span></div>
       </div>
     </header>
-    <div id="quick-menu" class="quick-menu"></div>
+    <div id="quick-menu" class="quick-menu">
+      <ul>
+        <li>
+          <h2><a href="#">일반고객</a></h2>
+          <div>
+            <p><a href="#">-제품정보</a></p>
+            <p><a href="#">-판매약국찾기</a></p>
+            <p><a href="#">-창업자유일한</a></p>
+            <p><a href="#">-사회공헌 활동</a></p>
+            <p><a href="#">-회사개요</a></p>
+          </div>
+        </li>
+        <li>
+          <h2><a href="#">기업고객</a></h2>
+          <div>
+            <p><a href="#">-공시정보</a></p>
+            <p><a href="#">-기업지배구조</a></p>
+            <p><a href="#">-IR자료실</a></p>
+            <p><a href="#">-제품소식</a></p>
+            <p><a href="#">-파이프라인</a></p>
+          </div>
+        </li>
+        <li>
+          <h2><a href="#">인재채용</a></h2>
+          <div>
+            <p><a href="#">-인사 및 복리후생</a></p>
+            <p><a href="#">-채용공고</a></p>
+            <p><a href="#">-온라인 입사지원</a></p>
+            <p><a href="#">-전형결과 확인</a></p>
+            <p><a href="#">-채용 Q&A</a></p>
+          </div>
+        </li>
+      </ul>
+    </div>
     <main id="main" class="main">
-      <div class="main-slide-wrapper">
-        <section class="main-slide sec-home">
-          <h2>
-            <span>Great & Global</span>
-            <br>
-            인류 건강의 길을 앞서갑니다.
-          </h2>
-          <div class="home-slide">
-            <div class="home-slide-wrapper">
-              <div class="imgbox"><img src="./assets/images/home_01.jpg" alt=""></div>
-              <div class="imgbox"><img src="./assets/images/home_02.jpg" alt=""></div>
-              <div class="imgbox"><img src="./assets/images/home_03.jpg" alt=""></div>
-              <div class="imgbox"><img src="./assets/images/home_04.jpg" alt=""></div>
-              <div class="imgbox"><img src="./assets/images/home_05.jpg" alt=""></div>
+      <section class="sec-home sec01">
+        <h2>
+          <span>Great & Global</span>
+          <br>
+          인류 건강의 길을 앞서갑니다.
+        </h2>
+        <div class="home-slide">
+          <div class="home-slide-wrapper">
+            <div class="imgbox"><img src="./assets/images/home_01.jpg" alt="배경"></div>
+            <div class="imgbox"><img src="./assets/images/home_02.jpg" alt="배경"></div>
+            <div class="imgbox"><img src="./assets/images/home_03.jpg" alt="배경"></div>
+            <div class="imgbox"><img src="./assets/images/home_04.jpg" alt="배경"></div>
+            <div class="imgbox"><img src="./assets/images/home_05.jpg" alt="배경"></div>
+          </div>
+          <div class="home-control">
+            <div id="btn-home-control" class="flag-play"><img src="./assets/images/btn_stop.png" alt="자동재생 제어버튼"></div>
+          </div>
+        </div>
+      </section>
+      <section class="sec-company sec02">
+        <div class="container">
+          <div class="company-tit">
+            <h2>YUHAN</h2>
+            <p>
+              모두의 건강과 행복이라는 큰 꿈을 가진 버드나무는
+              <br>
+              지금도 국민과 함께 자라고 있습니다.
+            </p>
+          </div>
+          <div class="company-slider">
+            <div class="imgbox"><img src="./assets/images/company_slide_01.jpg" alt="회사소개 슬라이더"></div>
+            <div class="imgbox"><img src="./assets/images/company_slide_02.jpg" alt="회사소개 슬라이더"></div>
+            <div class="imgbox"><img src="./assets/images/company_slide_03.jpg" alt="회사소개 슬라이더"></div>
+            <div class="imgbox"><img src="./assets/images/company_slide_04.jpg" alt="회사소개 슬라이더"></div>
+          </div>
+          <div class="company-introduct">
+            <div class="imgbox">
+              <a href="#">
+                <img src="./assets/images/company_0501.jpg" alt="창업주">
+                <p>
+                  <span>
+                    유일한 박사
+                    <br>
+                    그리고 유한양행
+                  </span>
+                </p>
+              </a>
             </div>
-            <div class="home-control">
-              <div id="btn-home-control" class="flag-play"><img src="./assets/images/btn_stop.png" alt=""></div>
+            <div class="imgbox">
+              <a href="#">
+                <img src="./assets/images/company_0602.jpg" alt="비전">
+                <p>
+                  <span>
+                    글로벌혁신 신약을 향한
+                    <br>
+                    유한양행의 꿈
+                  </span>
+                </p>
+              </a>
+            </div>
+            <div class="imgbox">
+              <a href="#">
+                <img src="./assets/images/company_0701.jpg" alt="지속가능경영">
+                <p>
+                  <span>
+                    지속가능한 미래
+                    <br>
+                    유한양행이 만들어갑니다.
+                  </span>
+                </p>
+              </a>
             </div>
           </div>
-          
-        </section>
-        <section class="main-slide sec-company">
-          <div class="container">
-            <div class="company-tit">
-              <h2>YUHAN</h2>
+          <div class="overview">
+            <h3>Overview</h3>
+            <span>
+              국내 1등을 넘어 글로벌 제약사로서의 길, 인류 건강을 위한 그 길을 유한양행은
+              <br>
+              큰 꿈을 갖고 걸어가려 합니다.
+              <a href="#" class="view-more">View More</a>
+            </span>
+          </div>
+        </div>
+      </section>
+      <section class="sec-product sec03">
+        <div class="container">
+          <div class="product-tit">
+            <h2>Product</h2>
+            <p>유한양행의 다양한 제품과 서비스를 소개합니다.</p>
+            <a href="#" class="view-more">View More</a>
+          </div>
+          <div class="product-slider">
+            <div class="imgbox"><a href="#"><img src="./assets/images/product_slide_01.png" alt="제품"></a></div>
+            <div class="imgbox"><a href="#"><img src="./assets/images/product_slide_02.png" alt="제품"></a></div>
+            <div class="imgbox"><a href="#"><img src="./assets/images/product_slide_03.png" alt="제품"></a></div>
+          </div>
+          <div class="product-info">
+            <div class="imgbox">
+              <a href="#">
+                <img src="./assets/images/product_icon_01.png" alt="온라인 상담">
+                <span>온라인 상담</span>
+              </a>
+            </div>
+            <div class="imgbox">
+              <a href="#">
+                <img src="./assets/images/product_icon_02.png" alt="자주 묻는 질문">
+                <span>자주 묻는 질문</span>
+              </a>
+            </div>
+            <div class="imgbox">
+              <a href="#">
+                <img src="./assets/images/product_icon_03.png" alt="약국 찾기">
+                <span>판매 약국 찾기</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="sec-news sec04">
+        <div class="container">
+          <div class="sns-icon">
+            <div class="imgbox"><a href="#"><img src="./assets/images/sns_icon_01.png" alt="인스타그램"></a></div>
+            <div class="imgbox"><a href="#"><img src="./assets/images/sns_icon_02.png" alt="페이스북"></a></div>
+          </div>
+          <div class="news-box">
+            <h3>언론보도</h3>
+            <a href="#">View More</a>
+            <ul class="news-list">
+              <li>
+                <a href="#">
+                  <h4>렉라자, 1차치료 근거 다국가 3상 임상 결과 JCO·한국인 분석 결과 CRT 게재</h4>
+                  <p class="news-txt">렉라자, 1차치료 근거 다국가 3상 임상 결과 JCO·한국인 분석 결과 CRT 게재</p>
+                  <p class="news-date">2023.07.12</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <h4>“렉라자, 인종?변이?뇌전이 여부에 구애받지 않고 효과적”</h4>
+                  <p class="news-txt">“렉라자, 인종?변이?뇌전이 여부에 구애받지 않고 효과적"</p>
+                  <p class="news-date">2023.07.11</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <h4>年 7000만원 '항암제' 무상공급…제약업계 맏형 ‘유한’의 행보가 주는 메시지 [View & Insight]</h4>
+                  <p class="news-txt">年 7000만원 '항암제' 무상공급…제약업계 맏형 ‘유한’의 행보가 주는 메시지 [View & Insight]</p>
+                  <p class="news-date">2023.07.11</p>
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <h4>유한양행 ‘해피홈 파워캡슐’, 가수 장민호 모델로 TV CF 선보여</h4>
+                  <p class="news-txt">유한양행 ‘해피홈 파워캡슐’, 가수 장민호 모델로 TV CF 선보여</p>
+                  <p class="news-date">2023.07.07</p>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="youtube">
+            <div class="youtube-detail">
+              <h3>건강의 벗 유튜브</h3>
+              <a href="#" class="link">View More</a>
+              <a href="#" class="video">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/zvyLHulcdIM?si=oDnzckklN6Cg-p6q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+              </a>
+            </div>
+            <a href="#" class="banner"><img src="./assets/images/news_banner_01.jpg" alt="웹진 광고"></a>
+          </div>
+        </div>
+      </section>
+      <section class="sec-notice sec05">
+        <div class="container">
+          <div class="invest">
+            <div class="imgbox"><a href="#"><img src="./assets/images/invest_01.jpg" alt="재무정보 공시"></a></div>
+          </div>
+          <div class="recruit">
+            <div class="imgbox"><a href="#"><img src="./assets/images/recruit_01.jpg" alt="채용정보"></a></div>
+          </div>
+        </div>
+      </section>
+      <section class="sec-brand sec06">
+        <div class="container">
+          <h2>Brand site</h2>
+          <div class="brand-box">
+            <ul class="brand-icon">
+              <li><a href="#"><img src="./assets/images/brand_01.jpg" alt="마그비"></a></li>
+              <li class="has-color"><a href="#"><img src="./assets/images/brand_02_hover.jpg" alt="삐콤-씨"></a></li>
+              <li class="has-color"><a href="#"><img src="./assets/images/brand_03_hover.jpg" alt="엘레나"></a></li>
+              <li class="has-color"><a href="#"><img src="./assets/images/brand_04_hover.jpg" alt="센스데이"></a></li>
+              <li class="has-color"><a href="#"><img src="./assets/images/brand_05_hover.jpg" alt="데일리케어"></a></li>
+              <li><a href="#"><img src="./assets/images/brand_06.jpg" alt="해피홈"></a></li>
+              <li class="has-color"><a href="#"><img src="./assets/images/brand_07_hover.jpg" alt="유한락스"></a></li>
+              <li class="has-color"><a href="#"><img src="./assets/images/brand_08_hover.jpg" alt="암 앤 해머"></a></li>
+              <li class="has-color"><a href="#"><img src="./assets/images/brand_09_hover.jpg" alt="닥터버들"></a></li>
+              <li class="has-color"><a href="#"><img src="./assets/images/brand_10_hover.jpg" alt="와이즈바이옴"></a></li>
+              <li class="has-color"><a href="#"><img src="./assets/images/brand_11_hover.jpg" alt="윌로펫"></a></li>
+              <li class="has-color"><a href="#"><img src="./assets/images/brand_12_hover.jpg" alt="웰니스"></a></li>
+            </ul>
+            <ul class="mall">
+              <li class="has-color">
+                <p>유한양행 공식 쇼핑몰</p>
+                <a href="#"><img src="./assets/images/brand_shop_hover.jpg" alt="스토어"></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <footer id="footer" class="footer">
+        <div class="container">
+          <div class="footer-left">
+            <ul class="footer-nav">
+              <li><a href="#">이용약관</a></li>
+              <li><a href="#"><strong>개인정보처리방침</strong></a></li>
+              <li><a href="#">영상정보처리기기 운영·관리방침</a></li>
+              <li><a href="#">이메일무단수집거부</a></li>
+              <li><a href="#">스팸정책</a></li>
+              <li><a href="#">법적고지</a></li>
+              <li><a href="#">사이트이용 도움말</a></li>
+            </ul>
+            <address class="address">
               <p>
-                모두의 건강과 행복이라는 큰 꿈을 가진 버드나무는
+                회사명 : 유한양행 / 사업자등록번호 118-81-00601 / 대표 : 조욱제
                 <br>
-                지금도 국민과 함께 자라고 있습니다.
+                전화 : 02-828-0181 / 팩스 : 02-828-0050 / 주소 : 서울특별시 동작구 노량진로 74
+                <br>
+                COPYRIGHT (C) 2022 YUHAN. ALL RIGHT RESERVED
               </p>
-            </div>
+            </address>
           </div>
-        </section>
-      </div>
+          <div class="family-site">
+            <button id="btn-famliy-site">Family site 바로가기</button>
+            <ul id="family-site-list" class="family-site-list flag-close">
+              <li><a href="#">(주)유한화학</a></li>
+              <li><a href="#">(주)유한메디키</a></li>
+              <li><a href="#">(주)유한크로락스</a></li>
+              <li><a href="#">(주)유칼릭스</a></li>
+              <li><a href="#">(주)엠지</a></li>
+              <li><a href="#">(주)유한킴벌리</a></li>
+              <li><a href="#">(주)한국얀센</a></li>
+              <li><a href="#">(주)유한건강생활</a></li>
+              <li><a href="#">(주)이뮨온시아</a></li>
+              <li><a href="#">워랜텍</a></li>
+              <li><a href="#">애드파마</a></li>
+            </ul>
+          </div>
+          <div class="footer-right">
+            <div class="footer-sns">
+              <div class="imgbox"><a href="#"><img src="./assets/images/footer_facebook_icon.png" alt="페이스북"></a></div>
+              <div class="imgbox"><a href="#"><img src="./assets/images/footer_instar_icon.png" alt="인스타그램"></a></div>
+            </div>
+            <div class="mark"><a href="#"><img src="./assets/images/footer_accessmark.png" alt="웹 접근성 마크"></a></div>
+          </div>
+        </div>
+      </footer>
     </main>
   </section>
   <script src="./assets/js/jquery.min.js"></script>
   <script src="./assets/js/jquery.mousewheel.min.js"></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <script src="./assets/js/aos.js"></script>
   <script>
     AOS.init();
-    // ----- 메인 슬라이더 -----
-    $(document).ready(function(){
-      $('.main-slide-wrapper').slick({
-        accessibility:false,
-        arrows: false,
-        infinite:false,
-        touchMove:false,
-        vertical:true,
-        verticalSwiping:true,
-        slidesToShow:1,
-        slidesToScroll: 1,
-        // slide:$('.main-slide'),
-      });
-    });
+
+    //함수
+    function fnLogoOn(el1,el2){
+      el1.classList.add('active');
+      el2.setAttribute('src','./assets/images/logo_hover.png');
+    }
+    function fnLogoOff(el1,el2){
+      el1.classList.remove('active');
+      el2.setAttribute('src','./assets/images/logo.png');
+    }
+
+    function fnControlFamliySite(el){
+      if(el.classList.contains('flag-close')){
+        el.style.display='block';
+        el.classList.replace('flag-close','flag-open');
+      }
+      else if(el.classList.contains('flag-open')){
+        el.style.display='none';
+        el.classList.replace('flag-open','flag-close');
+      }
+    }
 
 
     // ----- 홈 슬라이더 -----
@@ -473,7 +1242,7 @@
       $('.home-slide-wrapper').slick({
         accessibility:false,
         autoplay:true,
-        autoplaySpeed:4000,
+        autoplaySpeed:3000,
         arrows:false,
         draggable:false,
         fade:true,
@@ -485,6 +1254,7 @@
         pauseOnFocus:false,
         pauseOnHover:false,
         pauseOnDotsHover:false,
+        waitForAnimate:false,
       });
     });
     // ----- 홈 슬라이더 제어 -----
@@ -499,7 +1269,33 @@
         $('#btn-home-control').attr('class','flag-play');
         $('#btn-home-control').children().attr('src','./assets/images/btn_stop.png');
       }
-    })
+    });
+
+
+    //----- 회사 슬라이더 제어 ----- 
+    $(document).ready(function(){
+      $('.company-slider').slick({
+        infinite:true,
+        autoplay : true,
+        waitForAnimate:false,
+        pauseOnHover:false,
+        arrows:false,
+      });
+    });
+
+
+    //----- 제품 슬라이더 제어 ----- 
+    $(document).ready(function(){
+      $('.product-slider').slick({
+        infinite: true,
+        autoplay : true,
+        waitForAnimate:false,
+        pauseOnHover:false,
+        prevArrow: false,
+        nextArrow: false,
+        dots:true,
+      });
+    });
     
     
 
@@ -507,14 +1303,76 @@
     let header=document.getElementById('header');
     let logo=document.getElementById('head-logo');
     let navTit=document.getElementsByClassName('nav-tit');
+    let navDepth2=document.getElementsByClassName('depth2');
     header.onmouseenter=function(){
-      header.classList.add('active');
-      logo.setAttribute('src','./assets/images/logo_hover.png');
+      fnLogoOn(header,logo);
     }
     header.onmouseleave=function(){
+      if(!header.classList.contains('flag-under')){
+        fnLogoOff(header,logo);
+      }
       header.classList.remove('active');
-      logo.setAttribute('src','./assets/images/logo.png');
     }
+    for(let i=0;i<navTit.length;i++){
+      navTit[i].onmouseenter=function(){
+        navTit[i].classList.add('active');
+      }
+      navTit[i].onmouseleave=function(){
+        navTit[i].classList.remove('active');
+      }
+      navDepth2[i].onmouseenter=function(){
+        navTit[i].classList.add('active');
+      }
+      navDepth2[i].onmouseleave=function(){
+        navTit[i].classList.remove('active');
+      }
+    }
+
+
+    // ----- 문서 제어 -----
+    let $html = $('html,body');
+    let count = 1;
+    let scroll ="";
+    $('#wrap').mousewheel(function(e){
+      if ($html.is(":animated")) return;//애니메이션 중이면 탈출
+      if(e.originalEvent.deltaY > 0) {
+        if(count == 6) return;//맨아래에서 아래로 스크롤하면 탈출
+        count++;
+      }else if (e.originalEvent.deltaY < 0) {
+        if(count == 1) return;
+        count--;
+      }
+      if(count == 1){
+        scroll = $('#wrap').offset();	
+      }else{
+        scroll = $('.sec0'+count).offset()
+      }
+
+      //홈화면 아래일때
+      if(count > 1) {
+        header.classList.add('flag-under');
+        logo.setAttribute('src','./assets/images/logo_hover.png');
+      }
+      //홈화면이 될때
+      else if(count == 1) {
+        header.classList.remove('flag-under');
+        logo.setAttribute('src','./assets/images/logo.png');
+      }
+      $html.animate({scrollTop:scroll.top},500);
+    });
+
+
+
+    // ----- 푸터 제어 -----
+    let btnFamily=document.getElementById('btn-famliy-site');
+    let familyList=document.getElementById('family-site-list');
+    btnFamily.onclick=function(){
+      fnControlFamliySite(familyList);
+    }
+
+    $(document).ready(function(){
+      $html.animate({scrollTop:0},100)
+    });
   </script>
 </body>
 </html>
