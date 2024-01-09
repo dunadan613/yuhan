@@ -1,0 +1,486 @@
+.sec-home{
+  position: relative;
+}
+.sec-home h2{
+  position: absolute;
+  left: 50%;
+  top: 47.5%;
+  transform: translate(-50%,-50%);
+  font-size: 29px;
+  font-weight: 300;
+  color: white;
+  z-index: 999;
+  text-align: center;
+}
+.sec-home .div-effect{
+  overflow: hidden;
+}
+.sec-home h2 span{
+  font-weight: 700;
+  font-size: 57px;
+  display: inline-block;
+  margin-bottom: 16px;
+  transform: translateY(100%);
+  transition-duration: 0.8s;
+  transition-timing-function: ease;
+  transition-delay: 0.3s;
+}
+.sec-home h2 span.active{
+  transform: translateY(0);
+}
+.sec-home h2 p{
+  text-align: left;
+  text-indent: 38px;
+  transform: translateY(-100%);
+  transition-duration: 0.8s;
+  transition-timing-function: ease;
+  transition-delay: 0.3s;
+}
+.sec-home h2 p.active{
+  transform: translateY(0);
+}
+.home-slide{
+  position: relative;
+}
+.home-slide .imgbox{
+  height: 975px;
+}
+.home-slide .imgbox img{
+  object-fit: cover;
+  height: 100%;
+  display: block;
+  transform: scale(1.2);
+  transition: all 3s ease-out;
+}
+.home-slide .imgbox.slick-active img{
+  transform: scale(1);
+  transition: all 10s ease-out;
+}
+.home-control{
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 80px;
+}
+.home-control .pagination{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.home-control .pagination li{
+  width: 13px;
+  height: 13px;
+  border: 1px solid white;
+  border-radius: 50%;
+  margin-right: 18px;
+}
+.home-control .pagination li.slick-active{
+  background-color: white;
+}
+.home-control .pagination li button{
+  display: none;
+}
+#btn-home-control{
+  position: absolute;
+  left: 57.8%;
+  width: 10px;
+  height: 17px;
+  cursor: pointer;
+}
+
+
+.sec-company{
+  height: 1082px;
+  background-image: url(../images/company_bg.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.company-tit{
+  position: absolute;
+  top: 170px;
+}
+.company-tit h2{
+  font-weight: 500;
+  font-size: 55px;
+}
+.company-tit p{
+  font-weight: 300;
+  font-size: 21px;
+  color: #8d8d8d;
+}
+.company-slider{
+  position: absolute;
+  width: 500px;
+  top: 172px;
+  right: 0;
+  border: 1px solid #e1e1e1;
+  z-index: 1;
+}
+.company-introduct{
+  position: relative;
+  width: 686px;
+  height: 450px;
+  top: 482px;
+}
+.company-introduct .imgbox{
+  position: absolute;
+  overflow: hidden;
+  color: black;
+}
+.company-introduct .imgbox a{
+  display: block;
+  transition: 0.3s;
+}
+.company-introduct .imgbox:hover a{
+  transform: scale(1.1);
+}
+.company-introduct .imgbox:nth-of-type(2){
+  top: 230px;
+  color: white;
+}
+.company-introduct .imgbox:nth-of-type(3){
+  right: 0;
+  color: white;
+}
+.company-introduct .imgbox p{
+  position: absolute;
+  width: 204px;
+  height: 87px;
+  top: 36px;
+  left: 32px;
+  font-size: 19px;
+  font-weight: 500;
+  overflow: hidden;
+}
+.overview{
+  position: relative;
+  width: 492px;
+  height: 283px;
+  top: 258px;
+  left: 748px;
+  border-bottom: 1px solid #acaead;
+}
+.overview h3{
+  font-weight: 500;
+  font-size: 35px;
+}
+.overview span{
+  display: block;
+  width: 326px;
+  margin-top: 10px;
+  font-size: 19px;
+  color: #8d8d8d;
+}
+.overview a{
+  bottom: 59px;
+  left: 0;
+}
+
+
+.sec-product{
+  background-image: url(../images/product_bg_01.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: scale(1.1);
+  transition: 2s;
+  height: 1079px;
+}
+.sec-product.active{
+  transform: scale(1);
+}
+.product-tit{
+  position: absolute;
+  width: 366px;
+  height: 182px;
+  top: 185px;
+}
+.product-tit h2{
+  font-weight: 700;
+  font-size: 49px;
+  color: #484848;
+}
+.product-tit p{
+  font-size: 24px;
+  color: #484848;
+}
+.product-tit a{
+  font-weight: 500;
+  bottom: 0;
+  left: 0;
+}
+.product-slider{
+  position: absolute;
+  width: 620px;
+  top: 403px;
+  padding-left: 10px;
+}
+.product-slider img{
+  display: block;
+}
+.product-slider ul{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 0;
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+}
+.product-slider li{
+  width: 13px;
+  height: 13px;
+  margin-right: 10px;
+  border: 1px solid #626262;
+  border-radius: 50%;
+  background-color: transparent;
+}
+.product-slider li.slick-active{
+  background-color: #626262;
+}
+.product-slider button{
+  display: none;
+}
+.product-info{
+  position: absolute;
+  width: 420px;
+  height: 95px;
+  right: 80px;
+  bottom: 210px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.product-info .imgbox{
+  width: 122px;
+}
+.product-info .imgbox:nth-child(1) img{
+  width: 55px;
+  height: 48px;
+}
+.product-info .imgbox:nth-child(2) img{
+  width: 61px;
+  height: 46px;
+}
+.product-info .imgbox:nth-child(3) img{
+  width: 52px;
+  height: 53px;
+}
+.product-info .imgbox span{
+  display: block;
+  margin-top: 10px;
+  font-size: 19px;
+}
+.product-info .imgbox a{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-content: flex-end;
+}
+
+
+.sec-news{
+  height: 1141px;
+  background-image: url(../images/news_bg.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.sns-icon{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 216px;
+  right: 0;
+  gap: 3px;
+}
+.news-box{
+  position: absolute;
+  width: 574px;
+  height: 587px;
+  top: 269px;
+  padding: 19px;
+  background-color: rgb(255 255 255 / 71%);
+  box-sizing: content-box;
+}
+.news-box h3{
+  float: left;
+  font-size: 28px;
+  font-weight: 700;
+}
+.news-box>a{
+  float: right;
+  width: 64px;
+  margin-top: 10px;
+  border-bottom: 1px solid black;
+  font-size: 13px;
+}
+.news-list{
+  margin-top: 74px;
+}
+.news-list li{
+  height: 121px;
+  padding: 18px;
+  border-bottom: 1px solid #9c9c9c;
+}
+.news-list li:last-child{
+  border: none;
+}
+.news-list li:hover h4,
+.news-list li:hover .news-txt{
+  color: #008944;
+}
+.news-list h4{
+  font-size: 19px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.news-list p{
+  margin-top: 10px;
+  font-size: 17px;
+  word-wrap: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.news-list .news-date{
+  font-size: 12px;
+  color: #626567;
+}
+.youtube{
+  position: absolute;
+  width: 613px;
+  height: 625px;
+  top: 269px;
+  left: 628px;
+  box-sizing: content-box;
+}
+.youtube-detail{
+  position: absolute;
+  width: 575px;
+  height: 416px;
+  right: 0;
+  padding: 19px;
+  background-color: rgb(255 255 255 / 71%);
+  box-sizing: content-box;
+}
+.youtube-detail h3{
+  font-weight: 700;
+  font-size: 28px;
+  float: left;
+}
+.youtube-detail a.link{
+  float: right;
+  width: 64px;
+  margin-top: 10px;
+  font-size: 13px;
+  border-bottom: 1px solid black;
+}
+.youtube-detail .video{
+  display: block;
+  margin-top: 61px;
+}
+.youtube-detail .video iframe{
+  width: 560px;
+}
+.youtube .banner{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+
+.sec-notice{
+  height: 240px;
+  margin-top: 50px;
+  padding-top: 139px;
+  box-sizing: content-box;
+}
+.sec-notice .container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.sec-notice .container>div{
+  position: relative;
+  width: 615px;
+}
+.invest{
+  margin-right: 10px;
+}
+
+
+.sec-brand{
+  height: 485px;
+  padding-top: 170px;
+  background-color: #f8f9fa;
+  box-sizing: content-box;
+}
+.sec-brand h2{
+  margin-bottom: 44px;
+  font-weight: 700;
+  font-size: 44px;
+}
+.brand-box{
+  width: 1026px;
+  height: 245px;
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+}
+.brand-box ul li.has-color{
+  filter: grayscale(1);
+}
+.brand-box ul li.has-color:hover{
+  filter: grayscale(0);
+}
+.brand-icon{
+  width: 882px;
+  display: flex;
+  flex-flow: row wrap;
+}
+.brand-icon li{
+  width: 141.5px;
+  height: 120px;
+  background-color: white;
+  margin-bottom: 7px;
+  margin-right: 6px;
+  border: 1px solid #ebebeb;
+  overflow: hidden;
+}
+.brand-icon li:nth-child(6n){
+  margin-right: 0;
+}
+.brand-icon li a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.brand-icon li img{
+  width: 115%;
+  height: 100%;
+}
+.mall{
+  width: 141.5px;
+}
+.mall li{
+  width: 100%;
+  height: 245px;
+  background-color: white;
+  border: 1px solid #ebebeb;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mall p{
+  position: absolute;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-weight: 500;
+  font-size: 13px;
+}
