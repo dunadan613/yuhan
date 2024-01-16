@@ -418,7 +418,6 @@
     AOS.init({
       startEvent:'mousewheel',
     });
-    // ----- 홈 슬라이더 -----
     $(document).ready(function(){
       $('.home-slide-wrapper').slick({
         accessibility:false,
@@ -438,7 +437,6 @@
         waitForAnimate:false,
       });
     });
-    // ----- 홈 슬라이더 제어 -----
     $('#btn-home-control').click(function(){
       if($('#btn-home-control').hasClass('flag-play')){
         $('.home-slide-wrapper').slick('slickPause');
@@ -451,7 +449,6 @@
         $('#btn-home-control').children().attr('src','./assets/images/btn_stop.png');
       }
     });
-    //----- 회사 슬라이더 제어 ----- 
     $(document).ready(function(){
       $('.company-slider').slick({
         infinite:true,
@@ -461,7 +458,6 @@
         arrows:false,
       });
     });
-    //----- 제품 슬라이더 제어 ----- 
     $(document).ready(function(){
       $('.product-slider').slick({
         infinite: true,
@@ -473,7 +469,6 @@
         dots:true,
       });
     });
-    // ----- 헤더 제어 -----
     let header=document.getElementById('header');
     let logo=document.getElementById('head-logo');
     let navTit=document.getElementsByClassName('nav-tit');
@@ -501,7 +496,6 @@
         navTit[i].classList.remove('active');
       }
     }
-    // ----- 퀵 메뉴 제어 -----
     let btnQuickOpen=document.getElementById('btn-quick-menu-open');
     let btnQuickClose=document.getElementById('btn-quick-menu-close');
     let QuickMenu=document.getElementById('quick-menu');
@@ -511,15 +505,14 @@
     btnQuickClose.onclick=function(){
       QuickMenu.style.display='none';
     }
-    // ----- 문서 제어 -----
     let $html = $('html,body');
     let count = 1;
     let scroll ="";
     let sectProduct=document.getElementsByClassName('sec-product')[0];
     $('#wrap').mousewheel(function(e){
-      if ($html.is(":animated")) return;//애니메이션 중이면 탈출
+      if ($html.is(":animated")) return;
       if(e.originalEvent.deltaY > 0) {
-        if(count == 6) return;//맨아래에서 아래로 스크롤하면 탈출
+        if(count == 6) return;
         count++;
       }else if (e.originalEvent.deltaY < 0) {
         if(count == 1) return;
@@ -533,25 +526,21 @@
       }else{
         scroll = $('.sec0'+count).offset();
       }
-      //홈화면 아래일때
       if(count > 1) {
         header.classList.add('flag-under');
         logo.setAttribute('src','./assets/images/logo_hover.png');
       }
-      //홈화면이 될때
       else if(count == 1) {
         header.classList.remove('flag-under');
         logo.setAttribute('src','./assets/images/logo.png');
       }
       $html.animate({scrollTop:scroll.top},500);
     });
-    // ----- 푸터 제어 -----
     let btnFamily=document.getElementById('btn-famliy-site');
     let familyList=document.getElementById('family-site-list');
     btnFamily.onclick=function(){
       fnControlFamliySite(familyList);
     }
-    // ----- 문서로드 이벤트 -----
     let divEffect=document.getElementsByClassName('div-effect');
     window.onload=function(){
       for(let i=0;i<divEffect.length;i++){
